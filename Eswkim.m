@@ -1,10 +1,5 @@
+%function to findout stiffness of stairwise staggered composite
 function s1 = Eswkim(n,Ep,Em,num,b,Lb,h,ar)
-%%vertical matrix thickness is assumed to be same as that of horizontal
-%%matrix thickness so that Lb=h/2
-%%Default value of E taken from Kim eqn 6
-
-%%2b is the width of the platelet
-%Lb=h/2;
 L= (ar*b*2)+(2*Lb);
 La1=(L/n)-(2*Lb);
 La2=(L*(n-1)./n)-(2*Lb);
@@ -36,7 +31,6 @@ Ar1=(L*((2*b)+h))./n;
 Ar2=((n-1)*L*((2*b)+h))./n;
 A=Ar1+Ar2;
 E_eqn6_el=((Ar1/(E1_eqn6*(A))+(Ar2/(E2_eqn6*(A))))).^-1;
-% E_eqn7_el=((Ar1/(E1_eqn7*(Ar1+Ar2))+(Ar2/(E2_eqn7*(Ar1+Ar2))))).^-1
 s1=E_eqn6_el;
 double(s1);
 end
