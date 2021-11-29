@@ -122,6 +122,7 @@ xlabel ('\rho','fontweight','bold', 'fontsize', 14)
 legend ('\sigma_{critical}^m/\sigma^m_{max} (Vertical interface Failure)', '\tau_{critical}^m/\tau^m_{max}(Horizontal interface Failure)','\sigma_{critical}^p/\sigma^p_{max}(Platelet Failure)','fontsize', 12)
 axis square
 set(gcf,'color','w')
+%%%%%%%%%%%Uncomment to plot graphs for other material-sets%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%MP2
 % figure
 % subplot(1,2,1)
