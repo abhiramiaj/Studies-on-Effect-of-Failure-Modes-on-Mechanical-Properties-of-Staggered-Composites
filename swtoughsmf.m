@@ -1,9 +1,4 @@
 %%toughness including first and second modes of failures 
-%%to find toughness (sig^2/E)_befvif +(sig^2/E)_aftrvif -(sig'^2/E_aftrvif)
-%sig' = sigbefvif x Eaftrvif/ Ebefvif
-% after vif B=0 in kims model
-% of a sw stagg comp under vif and  hif criteria using Kim s
-%%exact model
 %Normalized with platelet toughness sigpcrit^2/2Epcrit
 function swtoughsmf =swtoughsmf(n,Ep,Em,num,b,Lb,h,rho,sigpcrit,sigmcrit,taumcrit)
 E = Eswkim(n,Ep,Em,num,b,Lb,h,rho);
