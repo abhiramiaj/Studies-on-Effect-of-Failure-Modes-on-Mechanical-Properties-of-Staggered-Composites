@@ -7,13 +7,6 @@ sigmcrit1=43.4;
 sigpcrit1=2500;
 taumcrit1=25;
 
-% Ep1=0.5e5:0.5e5:3e5;
-% Em1=4000;
-% num1=0.38;
-% sigmcrit1=35;
-% sigpcrit1=1200;
-% taumcrit1=20.16;
-%taumcrit is 0.576 times sigmamcrit
 subplot(1,2,1);
 b=10;
 hnol=1/50;
@@ -52,7 +45,6 @@ set(gca,'fontsize',15)
 xlabel ('\rho','fontweight','bold', 'fontsize', 15)
 ylabel ('Normalized strength (\sigma''''_{reg}/\tau^m_{critical}), SMF','fontweight','bold', 'fontsize', 15)
 set(gcf,'color','w')
-%of regularly staggered composite using Kim6 
 axis square
 legend('E_p/E_m=10','E_p/E_m=50','E_p/E_m=100','E_p/E_m=200','E_p/E_m=500','E_p/E_m=1000','Zhang et al.,2010, E_p/E_m=10','fontsize',12)
 subplot(1,2,2);
