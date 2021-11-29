@@ -5,7 +5,6 @@ Em1=1.1e3;
 %Ep/Em set as 200
 num1=0.38;
 sigmcrit1=30;
-%sigpcrit1=200:200:1400;
 taumcrit1=17.3;
 sigpcrit1=[10*taumcrit1 25*taumcrit1 50*taumcrit1 100*taumcrit1 150*taumcrit1 200*taumcrit1];   
 %taumcrit is 0.576 times sigmamcrit
@@ -15,7 +14,6 @@ hnol=1/50;
 vf=0.8;
 n=5;
 rr=1:1:250;
-%[Lb,h,SMP1,SMP2,SMP3,SMP4,SMP5,SMP6,SMP7,SMP8]=deal(zeros(size(rr)));
 for i=1:numel(rr)
 Lb(i)=hnol*rr(i)*b/(1+hnol);
 h(i)=((2*b*b*rr(i))./(vf*(b*rr(i) + Lb(i)))) - (2*b);
@@ -177,14 +175,7 @@ plot(rr,SMP1,'linewidth',1.5)
 hold on;
 plot(rr,SMP2,'linewidth',1.5)
 hold on;
-% plot(rr,SMP3,'linewidth',1.5)
-% hold on;
-% plot(rr,SMP4,'linewidth',1.5)
-% hold on;
-% plot(rr,SMP5,'linewidth',1.5)
-% hold on;
-% plot(rr,SMP6,'linewidth',1.5)
-% hold on;
+
 
 
 set(gca,'fontsize',15)
@@ -195,7 +186,6 @@ set(gcf,'color','w')
 %of regularly staggered composite using Kim6 
 axis square
 
-%lg3=legend('$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=10$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=25$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=50$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=100$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=150$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=200$','fontsize',9);
 lg3=legend('$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=10$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=25, 50, 100, 150, 200$','fontsize',9);
 
 lg3.FontSize=12;
@@ -223,17 +213,13 @@ plot(rr,SMP3,'linewidth',1.5)
 hold on;
 plot(rr,SMP4,'linewidth',1.5)
 hold on;
-% plot(rr,SMP5,'linewidth',1.5)
-% hold on;
-% plot(rr,SMP6,'linewidth',1.5)
-% hold on;
+
 
 xlabel ('\rho','fontweight','bold', 'fontsize', 15)
 ylabel ('Normalized strength (\sigma''''_{sw}/\tau^m_{critical}), fmf','fontweight','bold', 'fontsize', 15)
 set(gcf,'color','w')
 set(gca,'fontsize',15)
 axis square
-%lg4=legend('$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=10$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=25$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=50$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=100$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=150$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=200$','fontsize',9);
 lg4=legend('$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=10$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=25$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=50$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=100, 150, 200$','fontsize',9);
 
 
@@ -242,7 +228,7 @@ set(lg4,'Interpreter','latex')
 
 figure
 subplot(1,2,1)
-%%ratios
+%%ratios %%%%%EXTRA FIGURE%%%%% RATIO BETWEEN FIRST AND SECOND FAILURE STRENGTHS
 rr=1:1:500;
 [SMP1,SMP2,SMP3,SMP4,SMP5,SMP6,SMP7,SMP8,SMP9,SMP10,Lb,h]=deal(zeros(size(rr)));
 
@@ -318,7 +304,6 @@ set(gca,'fontsize',15)
 xlabel ('\rho','fontweight','bold', 'fontsize', 15)
 ylabel ('Normalized strength ratio ,sw (FMF/SMF)','fontweight','bold', 'fontsize', 15)
 set(gcf,'color','w')
-%of regularly staggered composite using Kim6 
 axis square
 lg6=legend('$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=10$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=25$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=50$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=100$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=150$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=200$','fontsize',9);
 lg6.FontSize=12;
