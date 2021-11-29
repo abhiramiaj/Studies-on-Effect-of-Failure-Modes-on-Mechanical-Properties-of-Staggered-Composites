@@ -1,8 +1,6 @@
 function s1 = regstress(x,Ep,Em,num,b,Lb,h,s5,rho)
 n=2;
 Lp=rho*b*2;
-% x=0:0.1:La 
-%%% L is the length of stairwise RVE model
 L=Lp+(2*Lb);
 La1=(L./n)-(2*Lb);
 La2=(L*(n-1)./n)-(2*Lb);
