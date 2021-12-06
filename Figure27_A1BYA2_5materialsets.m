@@ -1,17 +1,11 @@
-
-% % Code to plot the A1/A2 vs rho for a regularly staggered model at first
-% % and second modes of failures + ratio of first and second mode strengths
-% % for ten different material sets, keeping
-% % zeta a constant to ensure sufficient overlapping even at lower aspect
-% % ratios
-
+% % Code to plot the A1/A2 vs rho for different material-sets
+clc; clear all;
 rr=1:1:120;
 [SMP1,SMP2,SMP3,SMP4,SMP5,Lb,h]=deal(zeros(size(rr)));
 
 b=10; %%2b is the width of platelet
 hnol= 1/50;
 vf=0.8;
-% Ecomp_eqn7=Ep*phi*((A*sinh(A))+(B*cosh(A)))/(cosh(A)+(A*sinh(A))+(B*cosh(A)));
 
 figure 
 Ep1=1200;
@@ -30,7 +24,6 @@ taumcrit2=11.52;
 
 Ep3=2.2e5;
 Em3=1100;
-%num3=0.38;
 num3=0.4;
 sigmcrit3=30;
 sigpcrit3=3250;
@@ -56,7 +49,8 @@ subplot(1,2,1);
 %%%MP1
 for i=1:numel(rr)
 Lb(i)=hnol*rr(i)*b/(1+hnol);
-h(i)=(2*b*rr(i)*2*b./(vf*(0.5*2*b*rr(i) + Lb(i)))) - (2*b);
+h(i)=((2*b*b*rr(i))./(vf*(b*rr(i) + Lb(i)))) - (2*b);    
+vf1(i)=(2*b*b*rr(i))./((2*b + h(i))*(rr(i)*b + Lb(i)));
 SMP1(i)=A1toA2regsmf(Ep1,Em1,num1,b,Lb(i),h(i),rr(i),sigpcrit1,sigmcrit1,taumcrit1);
 SMP2(i)=A1toA2regsmf(Ep2,Em2,num2,b,Lb(i),h(i),rr(i),sigpcrit2,sigmcrit2,taumcrit2);
 SMP3(i)=A1toA2regsmf(Ep3,Em3,num3,b,Lb(i),h(i),rr(i),sigpcrit3,sigmcrit3,taumcrit3);
@@ -76,22 +70,16 @@ hold on;
 
 xlabel ('\rho','fontweight','bold', 'fontsize', 15)
 ylabel ('A_1/A_2, reg','fontweight','bold', 'fontsize', 15)
-%of regularly staggered composite using Kim6 
 axis square
 set(gca,'fontsize',15)
-ylim([0 0.02])
-% xlim([0 40])
 legend('MP1','MP2','MP3','MP4','MP5','MP6','MP7','MP8','MP9','MP10','fontsize',12)
-
-
-%%sw function to be createdd!!!!!!!!!!!!!!!!!!!
 rr=1:1:120;
 subplot(1,2,2); 
 %%MP1
 n=5;
 for i=1:numel(rr)
 Lb(i)=hnol*rr(i)*b/(1+hnol);
-h(i)=(2*b*rr(i)*2*b./(vf*(0.5*2*b*rr(i) + Lb(i)))) - (2*b);
+h(i)=((2*b*b*rr(i))./(vf*(b*rr(i) + Lb(i)))) - (2*b);
 SMP1(i)=A1toA2swsmf(n,Ep1,Em1,num1,b,Lb(i),h(i),rr(i),sigpcrit1,sigmcrit1,taumcrit1);
 SMP2(i)=A1toA2swsmf(n,Ep2,Em2,num2,b,Lb(i),h(i),rr(i),sigpcrit2,sigmcrit2,taumcrit2);
 SMP3(i)=A1toA2swsmf(n,Ep3,Em3,num3,b,Lb(i),h(i),rr(i),sigpcrit3,sigmcrit3,taumcrit3);
@@ -111,10 +99,7 @@ hold on;
 
 xlabel ('\rho','fontweight','bold', 'fontsize', 15)
 ylabel ('A_1/A_2, sw','fontweight','bold', 'fontsize', 15)
-%of regularly staggered composite using Kim6 
 axis square
 set(gca,'fontsize',15)
 set(gcf,'color','w')
-% ylim([0 12])
-% xlim([0 40])
 legend('MP1','MP2','MP3','MP4','MP5','fontsize',12)
