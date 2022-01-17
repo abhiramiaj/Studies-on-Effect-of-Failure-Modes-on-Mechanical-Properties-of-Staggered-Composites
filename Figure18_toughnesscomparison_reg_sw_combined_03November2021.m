@@ -8,7 +8,7 @@ num=0.4; %Poisson's ratio of matrix
 sigmcrit=243.05; %Normal strength of matrix
 sigpcrit=1400;%Normal strength of platelet
 taumcrit=140; %shear strength of matrix
-hnol= 1/50;%halfnonoverlap to overlaplength ratio
+hnol= 1/50;%12.289;%halfnonoverlap to overlaplength ratio
 b=10; %%2b is the width of platelet
 [Ereg,ar,sig,Lp,nmlztoughzhang,w,Lb,h,vf1,eqn1]=deal(zeros(size(rr)));
 Gm1=Em/(2*(1+num)); %Shear modulus of matrix
@@ -17,7 +17,7 @@ z=0.5;
 pr=0.5; %platelet volume fraction
 for i=1:numel(rr)
     rrcrit=sigpcrit/taumcrit;
-      ar(i)=(pr.*rr(i).*rr(i).*gbe)./(3*(1-pr));
+    ar(i)=(pr.*rr(i).*rr(i).*gbe)./(3*(1-pr));
     Ereg(i)=(((4./3)+((3*z.*(1-z).*ar(i)).^-1)).^-1)*pr*Ep;
     if rr(i)<=rrcrit
         sig(i)=pr*sigpcrit*rr(i)./(2*rrcrit);
@@ -37,6 +37,7 @@ for i=1:numel(rr)
     vf=0.5;
     h(i)=((2*rr(i)*b*b)./(vf*(Lb(i)+(rr(i)*b))))-(2*b);
     vf1(i)=2*rr(i)*b*b/(((rr(i)*b)+Lb(i))*((2*b)+h(i))); %volume fraction
+    Lb(i)=hnol*rr(i)*b/(1+hnol);
     SMP1(i)=regtoughsmf(Ep,Em,num,b,Lb(i),h(i),rr(i),sigpcrit,sigmcrit,taumcrit);
     SMP2(i)=regtoughsmfBzer(Ep,Em,num,b,Lb(i),h(i),rr(i),sigpcrit,sigmcrit,taumcrit);
 end
@@ -45,7 +46,7 @@ hold on;
 plot(rr,SMP2,'g','linewidth', 1.5)
 xlabel ('\rho', 'fontsize', 15,'fontweight','bold')
 ylabel ('w^{reg}_{critical}/ w_{pcritical}','fontweight','bold', 'fontsize', 15)
-z1=legend ('Zhang et al., 2010','Kim et al., 2018','Present study, VI ignored','fontsize',10);
+z1=legend ('Zhang et al., 2010','Present study','Present study, VI ignored','fontsize',10);
 set(z1,'FontSize',12);
 set(gcf,'color','w')
 set(gca,'fontsize',15)
