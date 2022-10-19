@@ -77,7 +77,7 @@ set(gcf,'color','w')
 axis square
 % legend('\sigma^p_{crit}=200','\sigma^p_{crit}=400','\sigma^p_{crit}=600','\sigma^p_{crit}=800','\sigma^p_{crit}=1000','\sigma^p_{crit}=1200','\sigma^p_{crit}=1400','fontsize',12)
 lg1=legend('$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=10$',...
-    '$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=25, 50, 100, 150, 200$');
+    '$\frac{\sigma^p_{critical}}{\tau^m_{critical}}\geq25$');
 lg1.FontSize=12;
 set(lg1 ,'Interpreter','latex')
 subplot(1,2,2);
@@ -146,6 +146,6 @@ axis square
 % lg2=legend('$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=10$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=25$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=50$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=100$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=150$','$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=200$','fontsize',11);
 % set(lg2,'Interpreter','latex')
 lg2=legend('$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=10$',...
-    '$\frac{\sigma^p_{critical}}{\tau^m_{critical}}=25, 50, 100, 150, 200$');
+    '$\frac{\sigma^p_{critical}}{\tau^m_{critical}}\geq25$');
 lg2.FontSize=12;
 set(lg2 ,'Interpreter','latex')
